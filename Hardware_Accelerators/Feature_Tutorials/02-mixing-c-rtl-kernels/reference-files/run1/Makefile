@@ -62,6 +62,12 @@ else
 	./$(EXECUTABLE) $(XCLBIN)
 endif
 
+report_run:
+	vitis_analyzer krnl_vadd.$(TARGET).$(DEVICE).xclbin.run_summary
+
+report_link:
+	vitis_analyzer krnl_vadd.$(TARGET).$(DEVICE).xclbin.link_summary
+
 # Cleaning stuff
 .PHONY: clean
 RMDIR = rm -rf
