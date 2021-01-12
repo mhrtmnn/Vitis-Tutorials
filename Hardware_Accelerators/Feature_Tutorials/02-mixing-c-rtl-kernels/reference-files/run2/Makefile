@@ -33,7 +33,7 @@ LDCLFLAGS += --profile_kernel stall:all:all:all
 LDCLFLAGS += --profile_kernel exec:all:all:all
  
 
-all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig
+all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig.json:
 
 exe: $(EXECUTABLE)
 
@@ -49,8 +49,7 @@ $(XCLBIN): krnl_vadd.$(TARGET).$(DEVICE).xo ../../script/workplace/rtl_project/s
 $(EXECUTABLE): ../src/host/host_step2.cpp
 	g++ $(CXXFLAGS) -o '$@' '$<' $(CXXFLAGS2)
 
-.PHONY: emconfig
-emconfig:
+emconfig.json:
 	emconfigutil --platform $(DEVICE)
 
 .PHONY: run

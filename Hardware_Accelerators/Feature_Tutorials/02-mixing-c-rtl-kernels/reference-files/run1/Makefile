@@ -29,7 +29,7 @@ CXXFLAGS2 := -lOpenCL
 CLFLAGS := -t $(TARGET) --config design.cfg
 LDCLFLAGS := -t $(TARGET) --config design.cfg
 
-all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig
+all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig.json
 
 exe: $(EXECUTABLE)
 
@@ -45,8 +45,7 @@ $(XCLBIN): krnl_vadd.$(TARGET).$(DEVICE).xo
 $(EXECUTABLE): ../src/host/host_step1.cpp
 	g++ $(CXXFLAGS) -o '$@' '$<' $(CXXFLAGS2)
 
-.PHONY: emconfig
-emconfig:
+emconfig.json:
 	emconfigutil --platform $(DEVICE)
 
 .PHONY: run
