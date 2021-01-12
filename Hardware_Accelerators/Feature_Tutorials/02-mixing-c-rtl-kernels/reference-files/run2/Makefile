@@ -15,7 +15,7 @@ help:
 	@echo "      Command to remove the generated files."
 	@echo ""
 #######################################################################################
-TARGET := sw_emu
+TARGET := hw_emu
 DEVICE := xilinx_u280_xdma_201920_3
 EXECUTABLE := host
 XO := krnl_vadd.$(TARGET).$(DEVICE).xo
