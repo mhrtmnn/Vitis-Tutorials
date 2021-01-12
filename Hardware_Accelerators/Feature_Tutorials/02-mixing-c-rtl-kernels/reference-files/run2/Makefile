@@ -52,6 +52,11 @@ $(EXECUTABLE): ../src/host/host_step2.cpp
 emconfig.json:
 	emconfigutil --platform $(DEVICE)
 
+# path to xilinx's custom OpenCL implementation: libxilinxopencl.so
+# generic OpenCL looks for lib name in /etc/OpenCL/vendors/xilinx.icd
+LD_LIBRARY_PATH=$(XILINX_XRT)/lib/
+export LD_LIBRARY_PATH
+
 .PHONY: run
 run: all
 ifeq ($(TARGET),$(filter $(TARGET),sw_emu hw_emu))

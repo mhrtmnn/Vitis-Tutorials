@@ -49,6 +49,12 @@ emconfig.json:
 	emconfigutil --platform $(DEVICE)
 
 .PHONY: run
+
+# path to xilinx's custom OpenCL implementation: libxilinxopencl.so
+# generic OpenCL looks for lib name in /etc/OpenCL/vendors/xilinx.icd
+LD_LIBRARY_PATH=$(XILINX_XRT)/lib/
+export LD_LIBRARY_PATH
+
 run: all
 ifeq ($(TARGET),$(filter $(TARGET),sw_emu hw_emu))
 	XCL_EMULATION_MODE=$(TARGET) ./$(EXECUTABLE) $(XCLBIN)
