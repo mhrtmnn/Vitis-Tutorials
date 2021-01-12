@@ -16,7 +16,7 @@ help:
 	@echo ""
 #######################################################################################
 TARGET := sw_emu
-DEVICE := xilinx_u200_xdma_201830_2
+DEVICE := xilinx_u280_xdma_201920_3
 EXECUTABLE := host
 XO := krnl_vadd.$(TARGET).$(DEVICE).xo
 XCLBIN := krnl_vadd.$(TARGET).$(DEVICE).xclbin
