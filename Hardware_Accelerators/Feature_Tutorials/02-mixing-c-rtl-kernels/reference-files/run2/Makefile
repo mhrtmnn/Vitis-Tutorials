@@ -33,7 +33,7 @@ LDCLFLAGS += --profile_kernel stall:all:all:all
 LDCLFLAGS += --profile_kernel exec:all:all:all
  
 
-all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig.json:
+all: $(EXECUTABLE) $(XO) $(XCLBIN) emconfig.json
 
 exe: $(EXECUTABLE)
 
